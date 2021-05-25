@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chatt | AraSend</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="./lib/w3.css">
+	<link rel="stylesheet" href="./lib/font-awesome/5.15.3/css/all.min.css"/>
+	<link href="./fonts/ElMessiri/ElMessiri.css" rel="stylesheet">
+	<link href="./fonts/Cairo/Cairo.css" rel="stylesheet">
+	<style type="text/css">
+		body {
+			padding: 0;
+			margin: 0;
+			direction: rtl;
+		}
+		.w3-dispaly-container {
+			direction: rtl;
+			text-align: right;
+		}
+		.elements {
+			background-color: rgb(40,57,101);
+			width: 38%;
+			overflow: auto;
+			direction: ltr;
+			color: #fff;
+		}
+		.elements .fas {
+			color: #fff;
+			font-size: 20px;
+		}
+		.elements, .chat {
+			height: 100vh;
+			margin: 0;
+		}
+		.chat {
+			margin: 0 auto;
+			width: 62%;
+		}
+
+		.img-container {
+			height: 65px;
+			width: 65px;
+		}
+		.profile-img {
+			height: 100%;
+			width: 100%;
+		}
+		#nav {
+			padding: 5px;
+			box-shadow: 0 2px 3px 0 rgba(0,0,0,0.2);
+			position: relative;
+		}
+		#nav > div, .info > div {
+			display: inline-table;
+		}
+		.icons {
+			margin-left: 20px;
+		}
+		.icons > .fas {
+			margin-right: 20px;
+		}
+
+		form {
+			display: flex;
+			width: 70%;
+			padding: 0px;
+			position: relative;
+			font-size: 20px;
+		}
+		.inputs {
+			border: 0;
+			outline: 0;
+			padding: 10px 20px;
+			border: 1px solid transparent;
+		}
+		.send .fas {
+			font-size: 25px;
+			margin-right: 5px;
+		}
+		.option, .imoji {
+			width: 20%;
+			text-align: center;
+		}
+		.send-btn { 
+			text-align: center;
+			width: 100px;
+			text-align: center;
+			background: dodgerblue;
+			color: #fff;
+			padding: 10px;
+			border-radius: 25px 0 0 25px;
+			position: absolute;
+			left:0;
+			right:0;
+		}
+		.send-btn:hover { 
+			background: tomato;
+		}
+		.chatBox { 
+			padding: 10px;
+			width: 100%;
+			padding-left: 120px;
+			padding-right: 20px;
+			white-space: normal;
+			width: 100%;
+			text-align: right;
+			font-family: 'Cairo'
+		}
+		.out {
+			padding: 20px 15px;
+			font-size: 20px;
+			text-align: right;
+		}
+		.send {
+			padding: 40px 0;
+			direction: ltr;
+			width: 100%;
+			display: flex;
+		}
+		.content {
+			height: 74%;
+			overflow: auto;
+			padding: 20px;
+			font-family: 'El Messiri', sans-serif;
+		}
+		.messages {
+			max-width: 60%;
+			display: table;
+			border-radius: 10px;
+			padding: 10px;
+			margin: 5px;
+		}
+		.messages:nth-child(odd) {
+			background: #333;
+			color: #fff;
+		}
+		.ltr .messages {
+			background: #eee;
+			color: #000;
+			box-shadow: 2px rgba(0,0,0,0.2)
+		}
+		.ltr {
+			width: 100%;
+			direction: ltr;
+		}
+		.nav {
+			padding: 35px;
+			  background: #000428; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #000428, #004e92); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #000428, #004e92);
+			position: relative;
+		}
+		.menu {
+			padding: 25px;
+		}
+		.fa-search {
+			transform: rotate(90deg);
+		}
+		.items {
+			padding: 10px;
+			display: flex;
+		}
+		.items:hover {
+			background: #eee;
+			cursor: pointer;
+		}
+		.items .img-container {
+			border-radius: 50%;
+		}
+		.items .text {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			padding: 15px;
+			font-weight: bold;
+			width: 80%;
+		}
+		.last-massage {
+			display: block;
+			color: #818181;
+			white-space: nowrap;
+			overflow: hidden;
+			width: 100%;
+			text-overflow: ellipsis;
+			text-align: right;
+			direction: rtl;
+		}
+		.rtl {
+			direction: rtl;
+		}
+		.name {
+			direction: rtl;
+			width: 100%;
+			text-align: right;
+		}
+		.nav-menu, .massages-list {
+			position: fixed;
+			z-index: 1;
+			box-shadow: 0 2px 3px 0 rgba(0,0,0,0.5);
+			width: 200px;
+			background: #333;
+			color: #fff;
+			font-family: 'Cairo';
+			height: 0;
+			padding: 0;
+			display: none !important;
+		}
+		.nav-menu-show {
+			display: block !important;
+			animation: fade 0.5s;
+			animation-fill-mode: forwards;
+		}
+		@keyframes fade {
+			form {
+				height: 0;
+			}
+			to {
+				height: 130px;
+			}
+		}
+		/*
+		.w3-code {
+			white-space: pre-wrap;
+			direction: ltr;
+			text-align: left;
+		}
+		*/
+		.nav-menu {
+			left: 0;
+			top: 12%;
+		}
+		.nav-menu > div, .massages-list > div {
+			padding: 10px 20px;
+			cursor: pointer;
+		}
+		.nav-menu > div:hover, .massages-list > div:hover {
+			background: #ddd;
+			color: #000;
+		}
+	</style>
+</head>
+<body>
+	<div class="w3-dispaly-container">
+		<div class="elements w3-white w3-card w3-display-right">
+		<div class="rtl">
+			<div class="nav w3-display-container">
+				<div class="menu w3-display-right">
+					<i class="fas fa-bars"></i>
+				</div>
+				<div class="menu w3-display-left">
+					<i class="fas fa-search"></i>
+				</div>
+			</div>
+			<div class="items">
+				<div class="img-container">
+					<img src="./images/Project 22.png" class="profile-img">
+				</div>
+				<div class="text">
+					<div class="name">
+						AraSend
+					</div>
+					<div class="last-massage">
+						مرحبا
+					</div>
+				</div>
+			</div>
+
+			<div class="items">
+				<div class="img-container">
+					<img src="./images/Project 22_1.png" class="profile-img">
+				</div>
+				<div class="text">
+					<div class="name">
+						AraSend
+					</div>
+					<div class="last-massage">
+						يساعدنا تواصلك معنا
+					</div>
+				</div>
+			</div>
+			<div class="items">
+				<div class="img-container">
+					<img src="./images/Project 22.png" class="profile-img">
+				</div>
+				<div class="text">
+					<div class="name">
+						AraSend
+					</div>
+					<div class="last-massage">
+						لوجو الموقع بالوان و اجحام مختلفة و الصوره الى مش ظاهر فيها ar ده لان اللون اسود لما تحطه فى خلفيه بيضاء هيبان
+					</div>
+				</div>
+			</div>
+			<div class="items">
+				<div class="img-container">
+					<img src="./images/Project 22.png" class="profile-img">
+				</div>
+				<div class="text">
+					<div class="name">
+						AraSend
+					</div>
+					<div class="last-massage">
+						https://www.w3schools.com/w3css/w3css_padding.asp
+					</div>
+				</div>
+			</div>
+			<div class="items">
+				<div class="img-container">
+					<img src="./images/Project 22.png" class="profile-img">
+				</div>
+				<div class="text">
+					<div class="name">
+						AraSend
+					</div>
+					<div class="last-massage">
+						23132213222222222222222221556123121231
+					</div>
+				</div>
+			</div>
+			<div class="items">
+				<div class="img-container">
+					<img src="./images/Project 22.png" class="profile-img">
+				</div>
+				<div class="text">
+					<div class="name">
+						AraSend
+					</div>
+					<div class="last-massage">
+						23132213222222222222222221556123121231
+					</div>
+				</div>
+			</div>
+			<div class="items">
+				<div class="img-container">
+					<img src="./images/Project 22.png" class="profile-img">
+				</div>
+				<div class="text">
+					<div class="name">
+						AraSend
+					</div>
+					<div class="last-massage">
+						23132213222222222222222221556123121231
+					</div>
+				</div>
+			</div>
+
+		</div>
+		</div>
+		<div class="chat w3-display-left w3-dispaly-container">
+			<div id="nav" class="w3-card w3-dispaly-container">
+				<div class="out">
+					<i class="fas fa-arrow-right"></i>
+				</div>
+				<div class="info">
+					<div class="img-container">
+						<img src="./images/Project 22.png" class="profile-img">
+					</div>
+					<div class="profle-name">
+						AraSend
+					</div>
+				</div>
+				<div class="icons w3-display-left w3-display-container">
+					<i class="fas fa-video"></i>
+					<i class="fas fa-phone-alt"></i>
+					<i class="fas fa-ellipsis-v"></i>
+				</div>
+				<div class="nav-menu">
+					<div class="w3-butto">
+						مكالمة صوتيه جماعيه
+					</div>
+					<div class="w3-butto">
+						مكالمة صوتية جماعية
+					</div>
+					<div class="w3-butto">
+						حظر
+					</div>
+					<!--
+					<div class="w3-code w3-black">
+&lt;html&gt; 
+  &lt;body&gt; 
+	text here 
+  &lt;/body&gt; 
+&lt;/html&gt;
+					</div>
+				-->
+				</div>
+
+			</div>
+			<div class="content w3-display-container">
+				<div class="messages"">
+					مرحبا
+				</div>
+				<div class="ltr">
+					<div class="messages">
+						مرحبا ياصديقى كيف حالك
+					</div>
+				</div>
+				<div class="messages"">
+					انا بخير
+				</div>
+			</div>
+			<div class="send w3-display-bottommiddle w3-card w3-dispaly-container">
+				<div class="option w3-display-left container">
+					<i class="fas fa-microphone"></i>
+					<i class="fas fa-paperclip"></i>
+				</div>
+				<form class="w3-display-middle">
+					<input type="text" name="" class="inputs chatBox" placeholder="ارسل رسالة" autofocus>
+				</form>
+				<div class="imoji w3-display-right container">
+					<i class="fas fa-grin-beam"></i>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="user-options">
+		<div class="massages-list">
+			
+		</div>
+	</div>
+	<script type="text/javascript">
+		var chatBox = document.getElementsByClassName('chatBox')[0],
+		messages = document.getElementsByClassName("messages"),
+		dots = document.getElementsByClassName("fa-ellipsis-v")[0]
+
+		chatBox.addEventListener("keyup", function() {
+			var option = document.getElementsByClassName("option")[0],
+			micro = option.getElementsByTagName("i")[0],
+			clip = option.getElementsByTagName("i")[1];
+			console.log(this.value)
+			if (this.value !== '') {
+				clip.style.display = 'none';
+				micro.classList.value = micro.classList.value.replace(/microphone/ig, "paper-plane")
+			} else {
+				clip.style.display = '';
+				micro.classList.value = micro.classList.value.replace(/paper-plane/ig, "microphone")
+			}
+		})
+		for(i = 0; i < messages.length; i++) {
+			messages[i].addEventListener("contextmenu", function(e) {
+				e.preventDefault();
+				this.innerText = ("ok")
+			})
+		}
+
+		dots.addEventListener("click", function() {
+			navMenu = document.getElementsByClassName("nav-menu")[0];
+			navMenu.classList.toggle("nav-menu-show")
+		})
+	</script>
+<!--
+	<div class="container">
+		<div class="items">
+		
+		</div>
+		<div class="chat">
+			<div id="nav">
+				<div class="img-container">
+					<img src="./images/Project 22.png" class="profile-img">
+				</div>
+				<div class="profle-name">
+					AraSend
+				</div>
+				<div class="icons">
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	-->
+</body>
+</html>

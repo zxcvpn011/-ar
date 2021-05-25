@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- w3.css -->
+	<link rel="stylesheet" type="text/css" href="./lib/w3.css">
+	<!-- jQuery & Bootstrap -->
+	<script type="text/javascript" src="./lib/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="./lib/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<!-- Bootstrap 
+	<link rel="stylesheet" type="text/css" href="./lib/bootstrap/3.4.1/css/bootstrap.min.css">-->
+	
+	<!--- font awesome -->
+	<link rel="stylesheet" href="./lib/font-awesome/5.15.3/css/all.min.css">
+	<!--- fonts -->
+	<link href="./fonts/Lemonada/Lemonada.css" rel="stylesheet">
+	<link href="./fonts/ElMessiri/ElMessiri.css" rel="stylesheet">
+	<link href="./fonts/Cairo/Cairo.css" rel="stylesheet">
+	<style type="text/css">
+		.nav {
+			background: /*rgb(47,51,101)*/ transparent;
+			color: #fff;
+			position: fixed;
+			z-index: 1;
+			display: table;
+			transition: 0.5s;
+			width: 100%;
+		}
+		.logo-container {
+			height: 80px;
+			width: 80px;
+			margin: 0;
+		}
+		.logo {
+			height: 100%;
+			width: 100%;
+		}
+		.links, .icons {
+			float: right;
+			margin-top: 20px;
+			width: auto;
+			font-family: 'Cairo';
+			cursor: pointer;
+		}
+		.icons {
+			direction: ltr;
+		}
+		.logo-container, .w3-bar, .icons {
+			display: inline-table !important;
+		}
+		.header {
+			position: relative;
+			display: table;
+		}
+		.cover {
+			width: 100%;
+		}
+		.cover-image {
+			width: 100%;
+		}
+		.overlay {
+			height: 100%;
+			width: 100%;
+			background: rgba(0,0,0,0.5);
+			position: absolute;
+			top: 0;
+			left: 0;
+			overflow: hidden;
+		}
+		.info-list {
+			background: #fff;
+			width: 100%;
+			padding: 0;
+			top: 80%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			padding-bottom: 30px;
+		}
+		legend {
+			text-align: left;
+			padding-left: 25px;
+		}
+		.profile-image-container {
+			height: 150px;
+			width: 150px;
+		}
+		.profile-image {
+			width: 100%;
+			height: 100%;
+			border-radius: 50%;
+			position: relative;top: 20px;
+		}
+		.profile-name {
+			font-family: 'Cairo', 'Lemonada';
+			text-transform: capitalize;
+			text-align: left;
+			font-size: 25px;
+			position: relative;
+			top: -35px;
+			left: 20px;
+		}
+		.profile-name, .profile-image-container {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.profile-info {
+			text-align: center;
+			margin-top: 20px;
+		}
+		.info-items {
+			text-transform: capitalize;
+			font-size: 20px;
+			display: inline-table;
+			padding: 5px 10px;
+			font-family: 'Cairo';
+			border-bottom: 2px solid transparent;
+			cursor: pointer;
+			transition: 0.3s;
+		}
+		.info-items:hover {
+			border-bottom-color: dodgerblue;
+		}
+		.page-state {
+			color: #818181;
+			display: table;
+			position: relative;
+			left: 180px;
+			font-weight: bold;
+			top: -30px;
+		}
+		.btn {
+			font-size: 20px;
+			font-family: 'Cairo';
+			background: dodgerblue;
+			color: #fff;
+			padding: 10px 20px;
+			border-radius: 20px;
+			right: 5%;
+			float: right;
+		}
+		.content {
+			direction: rtl;
+			margin-top: -14%;
+		}
+		.side {
+			height: 100vh;
+			width: 30%;
+			background: rgb(40,57,101);
+			color: #fff;
+			padding: 20px 0;
+			padding-top: 50px;
+		}
+		.side, .posts {
+			display: inline-table;
+		}
+		
+		.caption {
+			font-size: 25px;
+			font-family: 'Cairo';
+			border-radius: 20px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.number {
+			text-align: center;
+			color: #fff;
+			font-size: 25px;
+			padding: 20px;
+		}
+		.link {
+			border-radius: 20px;
+			font-family: 'Cairo';
+			padding: 20px;
+		}
+		.link .link-text {
+			text-align: center;
+		}
+		.link .link-btn {
+			background: #222;
+			padding: 10px 2px;
+			width: 80%;
+			text-align: center;
+			border-radius: 20px;
+			margin: 10px auto;
+		}
+
+		.posts {
+			width: 69%;
+			height: 50vh;
+		}
+
+		.post {
+			margin: 30px auto;
+			height: 300px;
+			border-radius: 20px;
+			width: 90%;
+		}
+		.post > .cap > .img-container {
+			width: 75px;
+			height: 75px;
+			border-radius: 50%;
+			margin: 10px;
+			display: inline-table;
+		}
+		.post > .cap > .img-container > img {
+			height: 100%;
+			width: 100%;
+		}
+		.username {
+			display: inline-table;
+			font-weight: bold;
+			margin-right: -10px;
+			top: 5px;
+		}
+		.cap {
+			text-align: right;
+			direction: rtl;
+		}
+		.options {
+			margin-left: 25px;
+			margin-top: -15px;
+		}
+		.text {
+			text-align: right;
+			padding: 0 20px;
+			direction: rtl;
+		}
+		.option2 {
+			width: 100%;
+			direction: rtl;
+			text-align: center;
+		}
+		.like, .comment {
+			display: inline-table;
+			width: 49%;
+			background: #eee;
+			padding: 5px;
+			border-radius: 20px;
+			text-align: center;
+		}
+		.bars {
+			display: none !important;
+		}
+
+		@media screen and (max-width: 750px) {
+			.bars {
+				display: initial !important;
+			}
+			.links {
+				display: none !important;
+			}
+		}
+	</style>
+</head>
+<body>
+<div class="nav navbar navbar-inverse">
+	<div class="container-fluid">
+		<div class="logo-container navbar-header">
+			<img src="./images/1.png" class="logo navbar-brand">
+		</div>
+
+		<div class="w3-bar icons">
+			<div class="w3-bar-item">
+				<i class="fab fa-gripfire"></i>
+			</div>
+			<div class="w3-bar-item">
+				<i class="fas fa-envelope"></i>
+			</div>
+			<div class="w3-bar-item">
+				<i class="fas fa-bell"></i>
+			</div>
+			<div class="w3-bar-item">
+				<i class="fas fa-search"></i>
+			</div>
+			<div class="w3-bar-item bars"">
+				<i class="fas fa-bars"></i>
+			</div>
+		</div>
+
+		<div class="navbar navbar-inverse navbar-right w3-bar links">
+			<div class="w3-hover-blue list-items text-center nav-items w3-bar-item">
+				الصفحة الرئيسية
+			</div>
+			<div class="w3-hover-blue list-items text-center nav-items w3-bar-item">
+				الصفجة الشخصية
+			</div>
+		</div>
+	</div>
+</div>
+<div class="header">
+	<div class="cover">
+		<img src="./images/valhalla2.jpg" class="cover-image">
+	</div>
+	<div class="overlay w3-display-container">
+
+	</div>
+</div>
+<fieldset class="info-list w3-display-container">
+	<legend>
+		<div class="profile-image-container">
+			<img src="./images/valhalla1.jpg" class="profile-image">
+		</div>
+		<div class="profile-name">
+			assain's creed valhalla
+		</div>
+		<div class="page-state">
+			Offical Page
+		</div>
+		<div class="btn w3-display-right">
+			تواصل معنا
+		</div>
+	</legend>
+	<div class="profile-info">
+		<div class="info-items">
+			ابزر المنشورات
+		</div>
+		<div class="info-items">
+			تعديل معلومات الصفحة
+		</div>
+		<div class="info-items">
+		عن الصفحة
+		</div>
+	</div>
+</fieldset>
+<div class="content w3-display-container">
+		<div class="side">
+			<div class="caption">
+				الاعجابات 
+			</div>
+			<div class="number">
+				1445
+			</div>
+			<div class="caption">
+				المتابعين
+			</div>
+			<div class="number">
+				100K
+			</div>
+			<div class="link w3-card">
+				<div class="link-text">
+					يمكنك انشاء صفحة خاصة بنشاطك عن طريق الضغط على زر انشاء صفحة
+				</div>
+				<div class="link-btn">
+					انشاء صفحة
+				</div>
+			</div>
+		</div>
+<div class="posts">
+	<div class="post w3-card w3-display-container">
+		<div class="cap w3-display-container">
+				<div class="options w3-display-left">
+					<i class="fas fa-ellipsis-h"></i>
+				</div>
+				<div class="img-container">
+					<img src="./images/Project 22.png">
+				</div>
+				<div class="username">
+					AraSend
+				</div>
+			</div>
+			<div class="text">
+				Welcome in our website
+			</div>
+			<div class="option2 w3-display-bottommiddle">
+				<div class="like">
+					<i class="fas fa-thumbs-up"></i>
+				</div>
+				<div class="comment">
+					<i class="fas fa-comment"></i>
+				</div>
+			</div>
+		</div>
+		<div class="post w3-card w3-display-container">
+			<div class="cap w3-display-container">
+				<div class="options w3-display-left">
+					<i class="fas fa-ellipsis-h"></i>
+				</div>
+				<div class="img-container">
+					<img src="./images/Project 22.png">
+				</div>
+				<div class="username">
+					AraSend
+				</div>
+			</div>
+			<div class="text">
+				Welcome in our website
+			</div>
+			<div class="option2 w3-display-bottommiddle">
+				<div class="like">
+					<i class="fas fa-thumbs-up"></i>
+				</div>
+				<div class="comment">
+					<i class="fas fa-comment"></i>
+				</div>
+			</div>
+		</div>
+		<div class="post w3-card w3-display-container">
+			<div class="cap w3-display-container">
+				<div class="options w3-display-left">
+					<i class="fas fa-ellipsis-h"></i>
+				</div>
+				<div class="img-container">
+					<img src="./images/Project 22.png">
+				</div>
+				<div class="username">
+					AraSend
+				</div>
+			</div>
+			<div class="text">
+				Welcome in our website
+			</div>
+			<div class="option2 w3-display-bottommiddle">
+				<div class="like">
+					<i class="fas fa-thumbs-up"></i>
+				</div>
+				<div class="comment">
+					<i class="fas fa-comment"></i>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	document.getElementsByClassName('side')[0].style.height = document.getElementsByClassName('posts')[0].offsetHeight + "px";
+	window.addEventListener("scroll", function() {
+		console.log(window)
+		if (window.pageYOffset > document.getElementsByClassName('header')[0].offsetHeight/2.5) {
+			document.getElementsByTagName('div')[0].style.background = "rgb(47,51,101)";
+		} else {
+			document.getElementsByTagName('div')[0].style.background = "transparent";
+		}
+	})
+</script>
+</body>
+</html>

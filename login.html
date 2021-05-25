@@ -1,0 +1,373 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="./fonts/Lemonada/Lemonada.css" rel="stylesheet">
+	<link href="./fonts/Cairo/Cairo.css" rel="stylesheet">
+	<link rel="stylesheet" href="./lib/font-awesome/5.15.3/css/all.min.css">
+	
+	<link rel="stylesheet" href="./lib/w3.css " type="text/css"/>
+	
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	
+	<title>AraSend | تسجيل الدخول</title>
+	<style type="text/css">
+		body {
+			background: linear-gradient(135deg, transparent 50%, rgba(40,57,101,.9) 50%);
+			background-repeat: repeat;
+			height: 10px;
+			font-family: "Arial Black", sans-serif;
+		}
+		a {
+			-webkit-taphightlight-color: none;
+		}
+		.body-container {
+			height: 100vh;
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+		}
+		.container {
+			min-height: 500px;
+			width: 380px;
+			margin: 0px auto;
+			padding: 0;
+			border-radius: 20px;
+			font-family: 'Cairo', "Arial Black", sans-serif;
+			box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+			position: relative;
+			background:rgba(40,57,101,1);
+		}
+		.overlay  {
+			width:100%;
+			height: 100%;
+			position: absolute;
+			border-radius: 20px;
+			background:rgba(40,57,101,1);
+			color: #fff;
+			top: 0;
+			left: 0;
+			
+		}
+		.logo {
+			font-family: 'Lemonada', cursive;
+			font-size: 25px;
+			font-weight: bold;
+		}
+		.caption {
+			font-family: 'Cairo', "Arial Black", sans-serif;
+			padding: 20px;
+			text-align: center;
+			font-size: 35px;
+		}
+		.switch {
+			padding: 40px;
+			direction: rtl;
+		}
+		.switch > div {
+			display: inline-table;
+			margin-left: 20px;
+			color: #fff;
+		}
+		.switch > div {
+			cursor: pointer;
+			transition: 0.2s linear;
+			border: 2px solid transparent;
+		}
+		.switch > div:nth-child(1) {
+			border-bottom: 2px solid dodgerblue;
+		}
+		.switch > div:nth-child(2) {
+			color: rgba(255,255,255,0.7);
+		}
+		::placeholder {
+			color: rgba(255,255,255,0.8);
+		}
+		.btn, button {
+			border: 0;
+			outline: 0;
+			font-family: 'Cairo', "Arial Black", sans-serif;
+			display: block;
+			margin: 3px auto;
+			direction: rtl;
+			background: rgba(255,255,255,.1);
+			color: #fff;
+		}
+		.btn {
+			padding: 10px 20px;
+			width: 75%;
+			margin: 5px auto;
+			display: block;
+			border: 0;
+			outline: 0;
+			box-shadow: 0 0 2px 0px rgba(0, 0, 0, 0.2);
+			font-family: 'Cairo', "Arial Black", sans-serif;
+			direction: rtl;
+		}
+		.pass {
+			padding-left: 5%;
+			width: 80%;
+		}
+		.sub {
+			color: #fff;
+			background: #000;
+		}
+		.sub:hover {
+			color: #fff;
+			background: rgba(20,57,150,1);
+			transition: 0.3s linear;
+		}
+		.form {
+			display: table;
+			margin: auto;
+			width: 100%;
+		}
+		input[type="checkbox"] {
+			display: inherit;
+		}
+		.ch {
+			direction: rtl;
+			padding: 10px;
+			width: 85%;
+			margin: auto;
+		}
+		.hr {
+		    height: 2px;
+		    margin: 30px auto;
+		    background: rgba(255,255,255,.2);
+		    width: 60%;
+		}
+		.forgot {
+			text-align: right;
+			margin: 15px 0;
+			font-family: 'Cairo', "Arial Black", sans-serif;
+			cursor: pointer;
+			width: 100%;
+			text-align: center;
+		}
+		.subTetx {
+			font-size: 15px;
+			padding: 0;
+			margin: 0;
+			margin-top: -20px;
+		}
+		.icon {
+			display: inline-flex;
+			padding: 6px 5px;
+			background: #fff;
+			color: #000;
+		}
+		.pass_container {
+			display: flex;
+			position: relative;
+			width: 75%;
+			margin: auto;
+		}
+		.pass {
+			padding-left: 20%;
+			width: 100%;
+		}
+		.fa-eye, .fa-eye-slash {
+			position: absolute;
+			top: 35%;
+			left: 8%;
+			color: rgba(255,255,255,0.8);
+			cursor: pointer;
+		}
+
+		.signup {
+			padding-bottom: 30px;
+			display: none;
+		}
+
+		.choose {
+			display: flex;
+			direction: rtl;
+			padding: 0 20px;
+			width: 80%;
+			margin: auto;
+		}
+		.choose > div {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 10px;
+		}
+		.choose > div > * {
+			margin: 3px;
+		}
+		.short:nth-child(1) {
+			margin-left: 5%;
+		}
+		.date-container {
+			display: flex;
+			width: 75%;
+			margin: 0 auto;
+		}
+		.date-container > input {
+			text-align: center;
+		}
+		.img-container {
+			height: 40%;
+			width: 40%;
+			padding: 25px;
+		}
+		.logo-img {
+			height: 100%;
+			width: 100%;
+		}
+		@media screen and (max-width: 600px) {
+			.container {
+				box-shadow: none;
+				width: 280px;
+			}
+			.switch  > * {
+				font-size: 13px;
+			}
+			.switch > div:nth-child(2) {
+				margin-right: -15px;
+			}
+			.switch > div:nth-child(1) {
+				margin-right: -10px;
+			}
+		}
+		@media screen and (max-width: 800px) {
+			.img-container {
+				height: 25%;
+				width: 25%;
+			}
+		}
+		@media screen and (max-width: 600px) {
+			.switch  > * {
+				font-size: 12px;
+			}
+			.switch > div:nth-child(2) {
+				margin-right: -15px;
+			}
+			.switch > div:nth-child(1) {
+				margin-right: -10px;
+			}
+		}
+		
+	</style>
+</head>
+<body>
+
+<div class="body-container w3-display-container">
+	<div class="logo w3-display-topleft">
+		<div class="img-container">
+			<img src="./images/Project 22_1.png" class="logo-img">
+		</div>
+	</div>
+	<div class="container">
+		<div class="overlay">
+			<div class="switch">
+				<div>
+					تسجيل الدخول
+				</div>
+				<div>
+					انشاء حساب جديد
+				</div>
+			</div>
+			<div class="login">
+				<div class="form">
+					<input type="text" name="" placeholder="البريد الالكترونى  email@co.com" class="btn">
+					<div class="pass_container">
+						<input type="password" name="" placeholder="كلمة المرور" class="btn pass">
+						<i class="fas fa-eye-slash"></i> 
+					</div>
+					<div class="ch">
+						<label for="check"><input type="checkbox" name=""> البقاء قيد تسجيل الدخول </label>
+					</div>
+					<input type="submit" name="" value="تسجيل الدخول" class="sub btn">
+				</div>
+				<div class="hr"></div>
+				<div class="forgot">
+					هل نسيت كلمة المرور؟
+				</div>
+			</div>
+
+
+			<div class="signup">
+				<input type="text" placeholder="الإسم الشخصي" class="btn">
+				<input type="text" placeholder="الإسم العائلي" class="btn">
+				<div class="w3-display-container date-container">
+					<input type="text" placeholder="DD" class="btn">
+					<input type="text" placeholder="MM" class="btn">
+					<input type="text" placeholder="YYYY" class="btn">
+				</div>
+				<input type="email" placeholder="أختار بريدك الإلكتروني" class="btn">
+				<input type="password" placeholder="أدخل كلمة السر" class="btn">
+				<input type="password" placeholder="تأكيد كلمة السر" class="btn">
+				<div class="choose">
+					<div class="male">
+						<input type="checkbox" placeholder="ذكر">
+						<label> ذكر</label>
+					</div>
+					<div class="female">
+						<input type="checkbox" placeholder="أنثى">
+        				<label> أنثى</label>
+					</div>
+				</div>
+				<input type="button" value="انشاء حساب" class="sub btn">
+			</div>
+
+
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	var ico = document.getElementsByClassName('icon')[0];
+	btn = document.getElementsByClassName('btn')[2],
+	pass = document.getElementsByClassName('btn')[1],
+	login = document.getElementsByClassName("switch")[0].getElementsByTagName("div")[0],
+	signup = document.getElementsByClassName("switch")[0].getElementsByTagName("div")[1],
+	log = document.getElementsByClassName("login")[0],
+	sign = document.getElementsByClassName("signup")[0],
+	container = document.getElementsByClassName("container")[0],
+	overlay = document.getElementsByClassName("overlay")[0],
+	pass_container = document.getElementsByClassName("pass_container")[0],
+	eyes = pass_container.getElementsByTagName("i")[0];
+	login.addEventListener("click", function() {
+		this.style["color"] = "#fff"
+		this.style["border-bottom-color"] = "dodgerblue"
+		signup.style["color"] = "rgba(255,255,255,0.7)"
+		signup.style["border-bottom-color"] = "transparent"
+		log.style["display"] = "block"
+		overlay.style["display"] = "block"
+		sign.style["display"] = "none"
+	})
+	signup.addEventListener("click", function() {
+		this.style["color"] = "#fff"
+		this.style["border-bottom-color"] = "dodgerblue"
+		login.style["color"] = "rgba(255,255,255,0.7)"
+		login.style["border-bottom-color"] = "transparent"
+		log.style["display"] = "none"
+		overlay.style["display"] = "table";
+		sign.style["display"] = "block"
+		sign.style["padding-bottom"] = "30px"
+	})
+	btn.onfocus = function() {
+		if (this.style.background === '' || this.style.background == 'black') {
+			this.style.background = "rgba(20,57,150,1)"
+		}
+	}
+	btn.onblur = function() {
+		this.style.background = "black"
+	}
+	eyes.addEventListener("click", function() {
+		//this.classList.value = this.classList.value.replace(/eye-slash/ig, "eye")
+		if (this.classList.value !== "fas fa-eye") {
+			this.classList.value = this.classList.value.replace(/eye-slash/ig, "eye")
+			pass.type = "text"
+		} else {
+			this.classList.value = this.classList.value.replace(/eye/ig, "eye-slash")
+			pass.type = "password"
+		}
+	});
+</script>
+</body>
+</html>

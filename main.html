@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AraSend | الصفحة الرئيسية</title>
+	<link rel="stylesheet" href="./lib/font-awesome/5.15.3/css/all.min.css"/>
+	<link rel="stylesheet" href="./lib//w3.css">
+	<link href="./fonts/SourceSansPro/SourceSansPro.css" rel="stylesheet">
+	<script type="text/javascript" src="./js/methods.js"></script>
+	<link href="./fonts/Cairo/Cairo.css" rel="stylesheet">
+	<style type="text/css">
+		body {
+			padding: 0;
+			margin: 0;
+		}
+		#nav {
+			background: rgb(40,57,101);
+			padding: 35px;
+			color: #fff;
+		}
+		.right-list {
+			direction: rtl;
+		}
+		.left-list, .right-list {
+			padding: 30px;
+			font-family: 'Cairo';
+		}
+		.left-list > .items, .right-list > .items {
+			display: inline-table;
+		}
+		.items {
+			margin: 3px;
+		}
+		.fab, .fas, .fa {
+			font-size: 20px;
+		}
+		.fa-gripfire {
+			font-size: 25px;
+		}
+		.center-list {
+			direction: rtl;
+			display: flex;
+			width: 40%;
+		}
+		.btn {
+			background: rgb(0,0,0,0.5);
+			padding: 10px 20px;
+			border-radius: 20px;
+			width: 100%;
+			padding-left: 50px;
+			direction: rtl;
+		}
+		button {
+			background: transparent;
+			padding: 5px 10px;
+			position: absolute;
+			left: 3%;
+			top: 10%;
+		}
+		button > i {
+			color: #818181
+		}
+		.btn, button {
+			border: 0;
+			outline: 0;
+			font-family: 'Cairo', "Arial Black", sans-serif;
+			margin: 3px auto;
+			direction: rtl;
+			color: #fff;
+		}
+		.sideNav1 {
+			padding: 30px;
+			width: 25%;
+			background: rgb(40,57,101);
+			position: fixed;
+			right: 0;
+			height: 100%;
+			color: #fff;
+			direction: rtl;
+			font-family: 'Cairo';
+			overflow: auto;
+			padding-bottom: 150px;
+
+		}
+		.sideNav1::-webkit-scrollbar {
+			width: 0;
+		}
+		.caption {
+			font-size: 20px;
+		}
+		.sideNav2 {
+			padding: 30px;
+			width: 25%;
+			box-shadow: 0 2px 3px 0 rgba(0,0,0,0.5);
+			position: fixed;
+			left: 0;
+			height: 100%;
+			font-family: 'Cairo';
+			overflow: auto;
+			direction: rtl;
+		}
+		.side-items {
+
+		}
+		.img-container {
+			height: 80px;
+			width: 80px;
+		}
+		.img-container, .groups-names {
+			display: inline-table;
+		}
+		.groups-names {
+			display: inline-flex;
+			height: 80px;
+			align-items: center;
+			justify-content: center;
+			font-size: 20px;
+		}
+		.groups-img {
+			height: 100%;
+			width: 100%;
+		}
+		.down {
+			/*
+			font-size: 55px;
+			position: absolute;
+			color: #fff;
+			bottom: 12%;
+			left: 50%;
+			font-size: 25px;
+			*/
+			font-size: 55px;
+			position: absolute;
+			color: #fff;
+			bottom: 0;
+			right: 0;
+			text-align: center;
+			font-size: 25px;
+			background: rgb(40,57,101);
+			width: 100%;
+		}
+		.trend-text {
+			font-weight: bold;
+			font-size: 20px;
+			font-family: 'Source Sans Pro';
+		}
+		.post {
+			background: ;
+			margin: 10px;
+			height: 250px;
+			border-radius: 20px;
+		}
+		.post > .cap > .img-container {
+			width: 75px;
+			height: 75px;
+			border-radius: 50%;
+			margin: 10px;
+		}
+		.post > .cap > .img-container > img {
+			height: 100%;
+			width: 100%;
+			display: inline-table;
+		}
+		.username {
+			display: inline-table;
+			font-weight: bold;
+			margin-right: -10px;
+			position: relative;top: 5px;
+		}
+		#content {
+			width: 50%;
+			text-align: center;
+			margin: auto;
+		}
+		.cap {
+			text-align: right;
+			direction: rtl;
+		}
+		.options {
+			margin-left: 25px;
+			margin-top: -15px;
+		}
+		.text {
+			text-align: right;
+			padding: 0 20px;
+			direction: rtl;
+		}
+		.option2 {
+			width: 100%;
+			direction: rtl;
+		}
+		.like, .comment {
+			display: inline-table;
+			width: 48%;
+			background: #eee;
+			padding: 5px;
+			border-radius: 20px;
+		}
+		.write {
+			padding: 20px;
+		}
+		.writePost {
+			width: 100%;
+			direction: rtl;
+			padding: 10px 20px;
+			border-radius: 20px;
+			font-family: 'Cairo';
+			outline:0;
+		}
+	</style>
+</head>
+<body>
+<div class="w3-display-container body-container">
+	<div id="nav" class="w3-display-container w3-display-top">
+		<div class="logo">
+			
+		</div>
+		<div class="right-list w3-display-right">
+			<div class="items">
+				الصفحة الرئيسية
+			</div>
+			<div class="items">
+				الصفحة الشخصية
+			</div>
+		</div>
+		<div class="center-list w3-display-middle"> 
+			<input type="text" name="" class="btn" placeholder="البحث...">
+			<button>
+				<i class="fas fa-search"></i>
+			</button>
+		</div>
+		<div class="left-list w3-display-left">
+			<div class="items">
+				<i class="fas fa-angle-down"></i>
+			</div>
+			<div class="items">
+				<i class="fas fa-bell"></i>
+			</div>
+			<div class="items">
+				<i class="fas fa-envelope"></i>
+			</div>
+			<div class="items">
+				<i class="fab fa-gripfire"></i>
+			</div>
+		</div>
+	</div>
+	<div class="sideNav1">
+		<div class="caption">
+			الجروبات
+		</div>
+		<div class="elements">
+			<div class="side-items">
+				<div class="img-container">
+					<img src="./images/Project 22.png" class="groups-img">
+				</div>
+				<div class="groups-names">
+					AraSend
+				</div>
+
+
+
+				<div class="down">
+					<i class="fas fa-angle-down"></i>
+				</div>
+				<div class="img-container">
+					<img src="./images/Project 22_1.png" class="groups-img">
+				</div>
+				<div class="groups-names">
+					AraSend
+				</div>
+				<div class="img-container">
+					<img src="./images/1.png" class="groups-img">
+				</div>
+				<div class="groups-names">
+					AraSend
+				</div>
+				<div class="img-container">
+					<img src="./images/Project 22.png" class="groups-img">
+				</div>
+				<div class="groups-names">
+					AraSend
+				</div>
+				<div class="img-container">
+					<img src="./images/Project 22_1.png" class="groups-img">
+				</div>
+				<div class="groups-names">
+					AraSend
+				</div>
+				<div class="img-container">
+					<img src="./images/1.png" class="groups-img">
+				</div>
+				<div class="groups-names">
+					AraSend
+				</div>
+				<div class="img-container">
+					<img src="./images/Project 22.png" class="groups-img">
+				</div>
+				<div class="groups-names">
+					AraSend
+				</div>
+				<div class="img-container">
+					<img src="./images/Project 22_1.png" class="groups-img">
+				</div>
+				<div class="groups-names">
+					AraSend
+				</div>
+				<div class="img-container">
+					<img src="./images/1.png" class="groups-img">
+				</div>
+				<div class="groups-names">
+					AraSend
+				</div>
+				<div class="img-container">
+					<img src="./images/Project 22.png" class="groups-img">
+				</div>
+				<div class="groups-names">
+					AraSend
+				</div>
+
+				
+
+
+
+
+
+
+			</div>
+		</div>
+	</div>
+	<div class="sideNav2">
+		<div class="caption">
+			التريندات
+		</div>
+		<div class="trend-text">
+			#AraSend
+		</div>
+		<div class="trend-text">
+			#فلسطين
+		</div>
+		<div class="trend-text">
+			#حى_الشيح_جراح
+		</div>
+		<div class="trend-text">
+			#AraSend
+		</div>
+		<div class="trend-text">
+			#فلسطين
+		</div>
+		<div class="trend-text">
+			#حى_الشيح_جراح
+		</div>
+		<div class="trend-text">
+			#AraSend
+		</div>
+		<div class="trend-text">
+			#فلسطين
+		</div>
+		<div class="trend-text">
+			#حى_الشيح_جراح
+		</div>
+		<div class="trend-text">
+			#AraSend
+		</div>
+		<div class="trend-text">
+			#فلسطين
+		</div>
+		<div class="trend-text">
+			#حى_الشيح_جراح
+		</div>
+		<div class="trend-text">
+			#AraSend
+		</div>
+		<div class="trend-text">
+			#فلسطين
+		</div>
+		<div class="trend-text">
+			#حى_الشيح_جراح
+		</div>
+		<div class="trend-text">
+			#AraSend
+		</div>
+		<div class="trend-text">
+			#فلسطين
+		</div>
+		<div class="trend-text">
+			#حى_الشيح_جراح
+		</div>
+		<div class="trend-text">
+			#AraSend
+		</div>
+		<div class="trend-text">
+			#فلسطين
+		</div>
+		<div class="trend-text">
+			#حى_الشيح_جراح
+		</div>
+		<div class="trend-text">
+			#AraSend
+		</div>
+		<div class="trend-text">
+			#فلسطين
+		</div>
+		<div class="trend-text">
+			#حى_الشيح_جراح
+		</div>
+		<div class="trend-text">
+			#AraSend
+		</div>
+		<div class="trend-text">
+			#فلسطين
+		</div>
+		<div class="trend-text">
+			#حى_الشيح_جراح
+		</div>
+
+	</div>
+	<div id="content" class="">
+		<div class="w3-card">
+			<div class="write">
+				<input type="text" name="" placeholder="اكتب منشور..." class="writePost">
+			</div>
+		</div>
+		<div class="post w3-card w3-display-container">
+			<div class="cap w3-display-container">
+				<div class="options w3-display-left">
+					<i class="fas fa-ellipsis-h"></i>
+				</div>
+				<div class="img-container">
+					<img src="./images/Project 22.png">
+				</div>
+				<div class="username">
+					AraSend
+				</div>
+			</div>
+			<div class="text">
+				Welcome in our website
+			</div>
+			<div class="option2 w3-display-bottommiddle">
+				<div class="like">
+					<i class="fas fa-thumbs-up"></i>
+				</div>
+				<div class="comment">
+					<i class="fas fa-comment"></i>
+				</div>
+			</div>
+		</div>
+		<div class="post w3-card w3-display-container">
+			<div class="cap w3-display-container">
+				<div class="options w3-display-left">
+					<i class="fas fa-ellipsis-h"></i>
+				</div>
+				<div class="img-container">
+					<img src="./images/Project 22.png">
+				</div>
+				<div class="username">
+					AraSend
+				</div>
+			</div>
+			<div class="text">
+				Welcome in our website
+			</div>
+			<div class="option2 w3-display-bottommiddle">
+				<div class="like">
+					<i class="fas fa-thumbs-up"></i>
+				</div>
+				<div class="comment">
+					<i class="fas fa-comment"></i>
+				</div>
+			</div>
+		</div>
+		<div class="post w3-card w3-display-container">
+			<div class="cap w3-display-container">
+				<div class="options w3-display-left">
+					<i class="fas fa-ellipsis-h"></i>
+				</div>
+				<div class="img-container">
+					<img src="./images/Project 22.png">
+				</div>
+				<div class="username">
+					AraSend
+				</div>
+			</div>
+			<div class="text">
+				Welcome in our website
+			</div>
+			<div class="option2 w3-display-bottommiddle">
+				<div class="like">
+					<i class="fas fa-thumbs-up"></i>
+				</div>
+				<div class="comment">
+					<i class="fas fa-comment"></i>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<script type="text/javascript">
+		document.onreadystatechange = function() {
+			if (document.readyState === "interactive") {
+				var sideNav1 = document.getElementsByClassName('sideNav1')[0],
+				nav = document.getElementById('nav')
+				sideNav2 = document.getElementsByClassName('sideNav2')[0];
+				select(window, "scroll", function(e) {
+					let h = nav.offsetHeight,
+					s = window.scrollY,
+					j = h - s;
+					if(s > h) {
+						sideNav1.style.top = 0 +"px"
+						sideNav2.style.top = 0 +"px"
+					} else {
+						sideNav1.style.top = j +"px"
+						sideNav2.style.top = j +"px"
+					}
+				})
+				select(sideNav1, "scroll", function() {
+					document.getElementsByClassName("down")[0].style.bottom = -this.scrollTop+"px"
+				})
+			}
+		}
+	</script>
+</div>
+</body>
+</html>
